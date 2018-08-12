@@ -140,6 +140,9 @@
                         topicDiv.addClass(value);
                         var rating = $("<h4 style='margin:5px; color:aliceblue;'>").text("Rating = "+response.data[i].rating);
                         var title = $("<h4 style='margin:5px; color:aliceblue;'>").text("Title = "+response.data[i].title);
+                        // var titleText= $("<h4>").text(response.data[i].title);
+                        // titleTex = titleTex.toUpperCase();
+                        // var title = $("<h4 style='margin:5px; color:aliceblue;'>").text("Title2 = "+titleTex);
                         var topicImage = $("<img style='margin-top:30px'>");
                         topicImage.attr('src', response.data[i].images.fixed_height_small_still.url);
                         topicImage.attr('data-state', "still");
