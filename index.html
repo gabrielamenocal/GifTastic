@@ -95,7 +95,8 @@
             $.ajax ({
                 url:queryURL,
                 method: 'GET'
-                }).done(function(response){
+            })
+                .done(function(response){
                     for( var i=0; i<response.data.length;i++)
                     {
                         var topicDiv = $("<div>");
@@ -104,6 +105,8 @@
                         var topicImage = $("<img>");
                         topicImage.attr('src', response.data[i].images.fixed_height_small_still.url);
                         topicImage.attr('data-state', "still");
+                        topicImage.attr('data-still', response.data[i].images.fixed_height_small_still.url);
+                        topicImage.attr('data-animate', response.data[i].images.fixed_height_small.url);
                         topicImage.addClass('imgClicked');
                         topicDiv.prepend(p);
                         console.log(topicDiv);
@@ -113,28 +116,33 @@
                         $("#giphy").prepend(topicDiv);  
                         // $("#giphy").prepend("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");  
                         // $("imgClicked").prepend(topicImage);                       
-                    };   
+                    };
 
-                    $(".imgClicked").on("click", function(){
-                        state = $(this).data("state");
-                        console.log(state);
-                        topicImage.attr('src', response.data[i].images.fixed_height_small.url); 
-                        if (state === "still") {
-                            $(this).attr("src", $(this).attr("data-animate"));
-                            $(this).attr("data-state", "animate");
-                        } 
-                        else {
-                            $(this).attr("src", $(this).attr("data-still"));
-                            $(this).attr("data-state", "still");}
-                    
-                    });                    
-            });           
+                    $("img.imgClicked").on("click", function() {
+                        state = $(this).attr('data-state');
+                        // console.log(state);
+                        
+                        if (state === "still")
+                        {
+                        $(this).attr("src", $(this).attr("data-animate"));
+                        $(this).attr("data-state", "animate");
+                        }
+                        else 
+                        {
+                        $(this).attr("src", $(this).attr("data-still"));
+                        $(this).attr("data-state", "still");
+                        }                                    
+                    });           
+                });
+                // .catch(function(error){
+                //     console.log("Something went wrong!!");
+                // });
+  
+
+            
         });
-    });
-    
-        
-    
-
+    }); 
+   
     </script>
     
 </body>
