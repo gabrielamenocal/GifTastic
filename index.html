@@ -31,29 +31,26 @@
                             <button data-search ="technology" class="btn btn-success">Technology!</button>
                             <button data-search ="quantum" class="btn btn-success"> Quantum!</button>
                             <button data-search ="movies" class="btn btn-success">Movies!</button>
+                            <button data-search ="orchids" class="btn btn-success">Orchids!</button>
+
                             <br> <br>
                     </div>
 
                     <aside>
                             <div id="newTopic">
                                     <form class="form-group">
-                                            <label for="topicInput">Add a New Topic</label>
+                                            <label for="topicInput"> <h3> Add a New Topic </h3></label>
                                             <input type="text" id="topicInput"><br>              
                                             <input class="btn btn-primary" id="addTopic" type="submit" value="Add Topic">
                                     </form>
-                                    <div id="warning"></div>
+                                   <h1> <div id="warning"></div> </h1> 
                             </div> 
-                    </aside>
-    
+                    </aside>   
                         
     
-                    <div id="giphy">      
-    
-                    </div>
+                    <div id="giphy"> </div>
 
-            </table>
-
-              
+            </table>             
 
         </main>
 
@@ -71,7 +68,7 @@
 
     $(document).ready(function(){
 
-        var topics = ["coffee", "dog","travel","technology","quantum", "movies"];
+        var topics = ["coffee", "dog","travel","technology","quantum", "movies", "orchids"];
 
         // Add a new Topic part
 
@@ -87,10 +84,11 @@
                 return element === newTopic;
             });               
 
-            if(newTopic != found){
+            if(newTopic != found && newTopic != ""){
                var newButton = $("<button>");
                 newButton.attr('data-search', newTopic);
                 newButton.text(textNewTopic);
+                newButton.attr('class','btn btn-success');
                 $("#buttons").prepend(newButton);
                 topics.push(newTopic);
                 console.log(topics);
@@ -111,7 +109,7 @@
         // Get Gif after clicked
 
 
-        $("button").on("click", function(){   
+        $("button.btn").on("click", function(){   
 
             $("#giphy").empty();
 
@@ -151,8 +149,7 @@
 
                     $("img.imgClicked").on("click", function() {
                         state = $(this).attr('data-state');
-                        // console.log(state);
-                        
+                       
                         if (state === "still")
                         {
                         $(this).attr("src", $(this).attr("data-animate"));
@@ -168,9 +165,7 @@
                 // .catch(function(error){
                 //     console.log("Something went wrong!!");
                 // });
-  
-
-            
+             
         });
     }); 
    
