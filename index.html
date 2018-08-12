@@ -7,34 +7,65 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href = "style.css"> 
     <title>GifTastic GMenocal</title>
 </head>
 <body>
 
-    <div id="buttons">
-            <button data-search ="coffee">Coffee!</button>
-            <button data-search ="dog">Dogs!</button>
-            <button data-search ="travel">Travel</button>
-            <button data-search ="technology">Technology!</button>
-            <button data-search ="quantum">Quantum!</button>
-            <button data-search ="movies">Movies!</button>
-            <br> <br>
+    <div class="container-fluid">
+
+        <header class="container-fluid">
+                <nav class="navbar navbar-light bg-light card-header">
+                    <span class="navbar-brand mb-0 h1">GifTastic Gabriela Menocal Cover</span>
+                </nav>
+        </header>
+
+        <main>
+
+            <table>
+                    <div id="buttons">
+                            <button data-search ="coffee" class="btn btn-success">Coffee!</button>
+                            <button data-search ="dog" class="btn btn-success">Dogs!</button>
+                            <button data-search ="travel" class="btn btn-success">Travel</button>
+                            <button data-search ="technology" class="btn btn-success">Technology!</button>
+                            <button data-search ="quantum" class="btn btn-success"> Quantum!</button>
+                            <button data-search ="movies" class="btn btn-success">Movies!</button>
+                            <br> <br>
+                    </div>
+
+                    <aside>
+                            <div id="newTopic">
+                                    <form class="form-group">
+                                            <label for="topicInput">Add a New Topic</label>
+                                            <input type="text" id="topicInput"><br>              
+                                            <input class="btn btn-primary" id="addTopic" type="submit" value="Add Topic">
+                                    </form>
+                                    <div id="warning"></div>
+                            </div> 
+                    </aside>
+    
+                        
+    
+                    <div id="giphy">      
+    
+                    </div>
+
+            </table>
+
+              
+
+        </main>
+
+
+        <footer class="container-fluid">
+                <div class="card-footer">
+                        <p> <strong> Copyright © 2018 by Gabriela Elizabeth Menocal Cover </strong>  </p>
+                </div>
+        </footer>
+
     </div>
 
-    <div id="newTopic">
-            <form>
-                    <label for="topicInput">Add a New Topic</label>
-                    <input type="text" id="topicInput"><br>              
-                    <input id="addTopic" type="submit" value="Add Topic">
-            </form>
-            <div id="warning"></div>
-    </div>
-
-      
-
-    <div id="giphy">      
-
-    </div>
 
     <script type="text/javascript">
 
