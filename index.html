@@ -17,7 +17,7 @@
 
         <header class="container-fluid">
                 <nav class="navbar navbar-light bg-light card-header">
-                    <span class="navbar-brand mb-0 h1">GifTastic Gabriela Menocal Cover</span>
+                    <h2>  GifTastic Gabriela Menocal Cover </h2>
                 </nav>
         </header>
 
@@ -32,7 +32,8 @@
                             <button data-search ="quantum" class="btn btn-success"> Quantum!</button>
                             <button data-search ="movies" class="btn btn-success">Movies!</button>
                             <button data-search ="orchids" class="btn btn-success">Orchids!</button>
-
+                            <button data-search ="geek" class="btn btn-success">Geek!</button>
+                            <button data-search ="anime" class="btn btn-success">Anime!</button>
                             <br> <br>
                     </div>
 
@@ -94,13 +95,20 @@
                 console.log(topics);
             }else{
 
-                $("#warning").text("Topic already exist!!");
-                setTimeout(function(){
+                if(newTopic === ""){
+                    $("#warning").text("Value cannot be empty!!");
+                    setTimeout(function(){
+                    $("#warning").empty();
+                    $("#topicInput").empty();
+                },3000);
+                }else{
+                    $("#warning").text("Topic already exist!!");
+                    setTimeout(function(){
                     $("#warning").empty();
                     $("#topicInput").empty();
                 },3000);
 
-                console.log("Topic already exist!!");
+                };
 
             };
 
@@ -111,7 +119,7 @@
 
         $("button.btn").on("click", function(){   
 
-            $("#giphy").empty();
+            // $("#giphy").empty();
 
             var value = $(this).data("search");       
             
@@ -130,21 +138,22 @@
                     {
                         var topicDiv = $("<div>");
                         topicDiv.addClass(value);
-                        var p = $("<p>").text("Rating = "+response.data[i].rating);
-                        var topicImage = $("<img>");
+                        var rating = $("<h4 style='margin:5px; color:aliceblue;'>").text("Rating = "+response.data[i].rating);
+                        var title = $("<h4 style='margin:5px; color:aliceblue;'>").text("Title = "+response.data[i].title);
+                        var topicImage = $("<img style='margin-top:30px'>");
                         topicImage.attr('src', response.data[i].images.fixed_height_small_still.url);
                         topicImage.attr('data-state', "still");
                         topicImage.attr('data-still', response.data[i].images.fixed_height_small_still.url);
                         topicImage.attr('data-animate', response.data[i].images.fixed_height_small.url);
                         topicImage.addClass('imgClicked');
-                        topicDiv.prepend(p);
+                        topicDiv.prepend(rating);
+                        topicDiv.prepend(title);
                         console.log(topicDiv);
                         topicDiv.prepend(topicImage);
                         console.log(topicImage);
                         console.log(topicDiv);
-                        $("#giphy").prepend(topicDiv);  
-                        // $("#giphy").prepend("<img src='"+response.data[i].images.fixed_height_small_still.url+"'>");  
-                        // $("imgClicked").prepend(topicImage);                       
+                        $("#giphy").prepend(topicDiv); 
+                                             
                     };
 
                     $("img.imgClicked").on("click", function() {

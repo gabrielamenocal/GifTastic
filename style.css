@@ -41,3 +41,11 @@ p{
     font: 900;
 
 }
+
+btn{
+    margin-top: 40px;
+}
+
+.buttons{
+    overflow: auto;
+}
