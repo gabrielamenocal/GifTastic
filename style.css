@@ -49,3 +49,22 @@ btn{
 .buttons{
     overflow: auto;
 }
+
+#giphy{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    }
+
+img{
+    width: 100%;
+}
+
+.form-group{
+    margin:20px;
+}
+
+.first-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
