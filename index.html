@@ -138,8 +138,8 @@
                     {
                         var topicDiv = $("<div>");
                         topicDiv.addClass(value);
-                        var rating = $("<h4 style='margin:5px; color:aliceblue;'>").text("Rating = "+response.data[i].rating);
-                        var title = $("<h4 style='margin:5px; color:aliceblue;'>").text("Title = "+response.data[i].title);
+                        var rating = $("<h4 style='margin:5px; color:aliceblue;'>").text("Rating = "+response.data[i].rating.toUpperCase());
+                        var title = $("<h4 style='margin:5px; color:aliceblue;'>").text("Title = "+response.data[i].title.toUpperCase());
                         // var titleText= $("<h4>").text(response.data[i].title);
                         // titleTex = titleTex.toUpperCase();
                         // var title = $("<h4 style='margin:5px; color:aliceblue;'>").text("Title2 = "+titleTex);
